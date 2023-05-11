@@ -1,0 +1,20 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="MovieReviewSiteApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+    <option name="ENABLE_LAUNCH_OPTIMIZATION" value="false" />
+    <envs>
+      <env name="database" value="itsaDB" />
+      <env name="encrypt" value="true" />
+      <env name="loginTimeout" value="30" />
+      <env name="SPRING_DATASOURCE_URL" value="jdbc:sqlserver://itsa-server.database.windows.net:1433" />
+      <env name="trustServerCertificate" value="false" />
+      <env name="SPRING_DATASOURCE_USERNAME" value="super@itsa-server" />
+      <env name="SPRING_DATASOURCE_PASSWORD" value="!password123" />
+    </envs>
+    <module name="movie-review-site" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="com.itsa.moviereviewsite.MovieReviewSiteApplication" />
+    <option name="VM_PARAMETERS" value="--module-path $PATH_TO_FX$ --add-modules javafx.controls,javafx.fxml" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

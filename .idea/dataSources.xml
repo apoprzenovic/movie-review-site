@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="itsaDB@itsa-server.database.windows.net" uuid="48aa79a7-9b81-4b1d-8709-9585b53ae332">
+      <driver-ref>azure.ms</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
+      <jdbc-url>jdbc:sqlserver://itsa-server.database.windows.net:1433;encrypt=true;trustServerCertificate=false;loginTimeout=30;database=itsaDB;</jdbc-url>
+      <jdbc-additional-properties>
+        <property name="AZURE_SQL_DB_SERVER" value="/subscriptions/cc953c2b-e036-4a0b-92d0-ef0227942e7d/resourceGroups/itsaResourceGroup/providers/Microsoft.Sql/servers/itsa-server" />
+      </jdbc-additional-properties>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+  </component>
+</project>

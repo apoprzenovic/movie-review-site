@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox prefHeight="800.0" prefWidth="1280.0" stylesheets="@/templates/style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.itsa.moviereviewsite.fxml.controllers.HomeController">
+   <children>
+      <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+         <children>
+            <HBox prefHeight="92.0" prefWidth="1301.0" style="-fx-background-color: #29353C;">
+               <children>
+                  <Button id="itsaBtn" mnemonicParsing="false" onAction="#goToAllMovies" prefHeight="87.0" prefWidth="511.0" style="-fx-background-color: none;" text="Button">
+                     <graphic>
+                        <Label id="header" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" prefHeight="92.0" prefWidth="738.0" text="ITSA" textFill="#e6e6e6">
+                           <font>
+                              <Font size="57.0" />
+                           </font>
+                           <stylesheets>
+                              <URL value="@../templates/style.css" />
+                              <URL value="@style.css" />
+                           </stylesheets>
+                        </Label>
+                     </graphic>
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin>
+                  </Button>
+                  <TextField fx:id="tfSearch" prefHeight="47.0" prefWidth="787.0" promptText="Search for actor or movie..." style="-fx-background-radius: 7;">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets bottom="20.0" top="20.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Button fx:id="btnSearch" mnemonicParsing="false" onAction="#showSearchResults" prefHeight="17.0" prefWidth="8.0" style="-fx-background-color: 29353C;">
+                     <HBox.margin>
+                        <Insets bottom="20.0" right="30.0" top="13.0" />
+                     </HBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="52.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../static/images/searchbutton.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <MenuButton fx:id="mButton" alignment="CENTER" ellipsisString="" mnemonicParsing="false" prefHeight="85.0" prefWidth="2.0" style="-fx-background-color: none;" text="MenuButton">
+                     <items>
+                        <MenuItem fx:id="miWishlist" mnemonicParsing="false" onAction="#goToWishlist" text="Wishlist" />
+                        <MenuItem fx:id="miProfile" mnemonicParsing="false" onAction="#goToProfile" text="My Profile" />
+                        <MenuItem fx:id="miAdmin" mnemonicParsing="false" onAction="#goToAdmin" text="Admin page" visible="false" />
+                     </items>
+                     <graphic>
+                        <ImageView fitHeight="44.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../static/images/Menu.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </MenuButton>
+                  <Button mnemonicParsing="false" prefHeight="94.0" prefWidth="122.0" style="-fx-background-color: none;" />
+               </children>
+            </HBox>
+            <AnchorPane fx:id="anchorPaneContent" layoutY="84.0" prefHeight="716.0" prefWidth="1301.0">
+               <children>
+                  <VBox fx:id="vBoxSearch" prefHeight="200.0" prefWidth="1301.0" style="-fx-background-color: #44576D;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <VBox fx:id="vBoxContent" alignment="CENTER" prefHeight="716.0" prefWidth="1301.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <opaqueInsets>
+                        <Insets bottom="100.0" left="100.0" right="100.0" top="100.0" />
+                     </opaqueInsets>
+                     <children>
+                        <HBox prefHeight="60.0" prefWidth="1239.0" style="-fx-background-color: #44576D; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 2, 1);">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="28.0" right="28.0" />
+                           </VBox.margin>
+                           <children>
+                              <Label prefHeight="60.0" prefWidth="1162.0" text="New Movies" textFill="WHITE">
+                                 <font>
+                                    <Font size="30.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <MenuButton fx:id="menuButtonFilterMovies" alignment="CENTER" ellipsisString="" mnemonicParsing="false" prefHeight="85.0" prefWidth="2.0" style="-fx-background-color: none;" text="MenuButton">
+                                 <items>
+                                    <MenuItem mnemonicParsing="false" onAction="#sortMovieByRecommendation" text="Filter by recommended" />
+                                    <Menu mnemonicParsing="false" text="Filter by alphabet">
+                                      <items>
+                                        <MenuItem fx:id="menuItemFilterMovieAlphabeticalA_Z" mnemonicParsing="false" onAction="#sortMovieAlphabetA_Z" text="A-Z" />
+                                          <MenuItem fx:id="menuItemFilterMovieAlphabeticalZ_A" mnemonicParsing="false" onAction="#sortMovieAlphabetZ_A" text="Z-A" />
+                                      </items>
+                                    </Menu>
+                                    <Menu mnemonicParsing="false" text="Filter by rating">
+                                      <items>
+                                        <MenuItem fx:id="menuItemFilterMovieRatingH_L" mnemonicParsing="false" onAction="#sortMovieRatingH_L" text="Highest - Lowest" />
+                                          <MenuItem fx:id="menuItemFilterMovieRatingL_H" mnemonicParsing="false" onAction="#sortMovieRatingL_H" text="Lowest - Highest" />
+                                      </items>
+                                    </Menu>
+                                    <Menu mnemonicParsing="false" text="Filter by genre">
+                                      <items>
+                                          <Menu mnemonicParsing="false" text="Action">
+                                            <items>
+                                                <MenuItem fx:id="menuItemFilterMovieActionAlphabeticalA_Z" mnemonicParsing="false" onAction="#sortMovieActionAlphabetA_Z" text="A-Z" />
+                                                <MenuItem fx:id="menuItemFilterMovieActionAlphabeticalZ_A" mnemonicParsing="false" onAction="#sortMovieActionAlphabetZ_A" text="Z-A" />
+                                              <MenuItem fx:id="menuItemFilterMovieActionRatingH_L" mnemonicParsing="false" onAction="#sortMovieActionByRatingH_L" text="Highest - Lowest" />
+                                                <MenuItem fx:id="menuItemFilterMovieActionRatingL_H" mnemonicParsing="false" onAction="#sortMovieActionByRatingL_H" text="Lowest - Highest" />
+                                            </items>
+                                          </Menu>
+                                          <Menu mnemonicParsing="false" text="Adventure">
+                                            <items>
+                                                <MenuItem fx:id="menuItemFilterMovieAdventureAlphabeticalA_Z" mnemonicParsing="false" onAction="#sortMovieAdventureAlphabetA_Z" text="A-Z" />
+                                                <MenuItem fx:id="menuItemFilterMovieAdventureAlphabeticalZ_A" mnemonicParsing="false" onAction="#sortMovieAdventureAlphabetZ_A" text="Z-A" />
+                                                <MenuItem fx:id="menuItemFilterMovieAdventureRatingH_L" mnemonicParsing="false" onAction="#sortMovieAdventureByRatingH_L" text="Highest - Lowest" />
+                                                <MenuItem fx:id="menuItemFilterMovieAdventureRatingL_H" mnemonicParsing="false" onAction="#sortMovieAdventureByRatingL_H" text="Lowest - Highest" />
+                                            </items>
+                                          </Menu>
+                                          <Menu mnemonicParsing="false" text="Animation">
+                                            <items>
+                                                <MenuItem fx:id="menuItemFilterMovieAnimationAlphabeticalA_Z" mnemonicParsing="false" onAction="#sortMovieAnimationAlphabetA_Z" text="A-Z" />
+                                                <MenuItem fx:id="menuItemFilterMovieAnimationAlphabeticalZ_A" mnemonicParsing="false" onAction="#sortMovieAnimationAlphabetZ_A" text="Z-A" />
+                                                <MenuItem fx:id="menuItemFilterMovieAnimationRatingH_L" mnemonicParsing="false" onAction="#sortMovieAnimationByRatingH_L" text="Highest - Lowest" />
+                                                <MenuItem fx:id="menuItemFilterMovieAnimationRatingL_H" mnemonicParsing="false" onAction="#sortMovieAnimationByRatingL_H" text="Lowest - Highest" />
+                                            </items>
+                                          </Menu>
+                                          <Menu mnemonicParsing="false" text="Comedy">
+                                            <items>
+                                                <MenuItem fx:id="menuItemFilterMovieComedyAlphabeticalA_Z" mnemonicParsing="false" onAction="#sortMovieComedyAlphabetA_Z" text="A-Z" />
+                                                <MenuItem fx:id="menuItemFilterMovieComedyAlphabeticalZ_A" mnemonicParsing="false" onAction="#sortMovieComedyAlphabetZ_A" text="Z-A" />
+                                                <MenuItem fx:id="menuItemFilterMovieComedyRatingH_L" mnemonicParsing="false" onAction="#sortMovieComedyByRatingH_L" text="Highest - Lowest" />
+                                                <MenuItem fx:id="menuItemFilterMovieComedyRatingL_H" mnemonicParsing="false" onAction="#sortMovieComedyByRatingL_H" text="Lowest - Highest" />
+                                            </items>
+                                          </Menu>
+                                          <Menu mnemonicParsing="false" text="Drama">
+                                            <items>
+                                                <MenuItem fx:id="menuItemFilterMovieDramaAlphabeticalA_Z" mnemonicParsing="false" onAction="#sortMovieDramaAlphabetA_Z" text="A-Z" />
+                                                <MenuItem fx:id="menuItemFilterMovieDramaAlphabeticalZ_A" mnemonicParsing="false" onAction="#sortMovieDramaAlphabetZ_A" text="Z-A" />
+                                                <MenuItem fx:id="menuItemFilterMovieDramaRatingH_L" mnemonicParsing="false" onAction="#sortMovieDramaByRatingH_L" text="Highest - Lowest" />
+                                                <MenuItem fx:id="menuItemFilterMovieDramaRatingL_H" mnemonicParsing="false" onAction="#sortMovieDramaByRatingL_H" text="Lowest - Highest" />
+                                            </items>
+                                          </Menu>
+                                          <Menu mnemonicParsing="false" text="Horror">
+                                            <items>
+                                                <MenuItem fx:id="menuItemFilterMovieHorrorAlphabeticalA_Z" mnemonicParsing="false" onAction="#sortMovieHorrorAlphabetA_Z" text="A-Z" />
+                                                <MenuItem fx:id="menuItemFilterMovieHorrorAlphabeticalZ_AmenuItemFilterMovieHorrorAlphabeticalZ_A" mnemonicParsing="false" onAction="#sortMovieHorrorAlphabetZ_A" text="Z-A" />
+                                                <MenuItem fx:id="menuItemFilterMovieHorrorRatingH_L" mnemonicParsing="false" onAction="#sortMovieHorrorByRatingH_L" text="Highest - Lowest" />
+                                                <MenuItem fx:id="menuItemFilterMovieHorrorRatingL_H" mnemonicParsing="false" onAction="#sortMovieHorrorByRatingL_H" text="Lowest - Highest" />
+                                            </items>
+                                          </Menu>
+                                          <Menu mnemonicParsing="false" text="Romance">
+                                            <items>
+                                                <MenuItem fx:id="menuItemFilterMovieRomanceAlphabeticalA_Z" mnemonicParsing="false" onAction="#sortMovieRomanceAlphabetA_Z" text="A-Z" />
+                                                <MenuItem fx:id="menuItemFilterMovieRomanceAlphabeticalZ_A" mnemonicParsing="false" onAction="#sortMovieRomanceAlphabetZ_A" text="Z-A" />
+                                                <MenuItem fx:id="menuItemFilterMovieRomanceRatingH_L" mnemonicParsing="false" onAction="#sortMovieRomanceByRatingH_L" text="Highest - Lowest" />
+                                                <MenuItem fx:id="menuItemFilterMovieRomanceRatingL_H" mnemonicParsing="false" onAction="#sortMovieRomanceByRatingL_H" text="Lowest - Highest" />
+                                            </items>
+                                          </Menu>
+                                          <Menu mnemonicParsing="false" text="Science Fiction">
+                                            <items>
+                                                <MenuItem fx:id="menuItemFilterMovieSciFiAlphabeticalA_Z" mnemonicParsing="false" onAction="#sortMovieScienceFictionAlphabetA_Z" text="A-Z" />
+                                                <MenuItem fx:id="menuItemFilterMovieSciFiAlphabeticalZ_A" mnemonicParsing="false" onAction="#sortMovieScienceFictionAlphabetZ_A" text="Z-A" />
+                                                <MenuItem fx:id="menuItemFilterMovieSciFiRatingH_L" mnemonicParsing="false" onAction="#sortMovieScienceFictionByRatingH_L" text="Highest - Lowest" />
+                                                <MenuItem fx:id="menuItemFilterMovieSciFiRatingL_H" mnemonicParsing="false" onAction="#sortMovieScienceFictionByRatingL_H" text="Lowest - Highest" />
+                                            </items>
+                                          </Menu>
+                                          <Menu mnemonicParsing="false" text="Thriller">
+                                            <items>
+                                                <MenuItem fx:id="menuItemFilterMovieThrillerAlphabeticalA_Z" mnemonicParsing="false" onAction="#sortMovieThrillerAlphabetA_Z" text="A-Z" />
+                                                <MenuItem fx:id="menuItemFilterMovieThrillerAlphabeticalZ_A" mnemonicParsing="false" onAction="#sortMovieThrillerAlphabetZ_A" text="Z-A" />
+                                                <MenuItem fx:id="menuItemFilterMovieThrillerRatingH_L" mnemonicParsing="false" onAction="#sortMovieThrillerByRatingH_L" text="Highest - Lowest" />
+                                                <MenuItem fx:id="menuItemFilterMovieThrillerRatingL_H" mnemonicParsing="false" onAction="#sortMovieThrillerByRatingL_H" text="Lowest - Highest" />
+                                            </items>
+                                          </Menu>
+                                      </items>
+                                    </Menu>
+                                 </items>
+                                 <graphic>
+                                    <ImageView fitHeight="32.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../static/images/Slider.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </MenuButton>
+                           </children>
+                        </HBox>
+                        <ScrollPane fx:id="moviesContainer" hbarPolicy="NEVER" prefHeight="254.0" prefWidth="1203.0" style="-fx-background-color: #ffffff; -fx-background: #ffffff;" vbarPolicy="NEVER">
+                           <VBox.margin>
+                              <Insets left="46.0" right="46.0" />
+                           </VBox.margin>
+                           <content>
+                              <HBox fx:id="movieItemsContainer" prefHeight="251.0" prefWidth="180.0" spacing="16.0" />
+                           </content>
+                        </ScrollPane>
+                        <HBox prefHeight="60.0" prefWidth="1239.0" style="-fx-background-color: #44576D; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 2, 1);">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="28.0" right="28.0" top="5.0" />
+                           </VBox.margin>
+                           <children>
+                              <Label prefHeight="60.0" prefWidth="1162.0" text="Trending actors" textFill="WHITE">
+                                 <font>
+                                    <Font size="30.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <MenuButton fx:id="menuButtonFilterMovies1" alignment="CENTER" ellipsisString="" mnemonicParsing="false" prefHeight="85.0" prefWidth="2.0" style="-fx-background-color: none;" text="MenuButton">
+                                 <items>
+                                    <Menu mnemonicParsing="false" text="Filter by alphabet">
+                                       <items>
+                                          <MenuItem fx:id="menuItemFilterActorAlphabeticalA_Z" mnemonicParsing="false" onAction="#sortActorAlphabetA_Z" text="A-Z" />
+                                          <MenuItem fx:id="menuItemFilterActorAlphabeticalZ_A" mnemonicParsing="false" onAction="#sortActorAlphabetZ_A" text="Z-A" />
+                                       </items>
+                                    </Menu>
+                                    <Menu mnemonicParsing="false" text="Filter by rating">
+                                       <items>
+                                          <MenuItem fx:id="menuItemFilterActorRatingH_L" mnemonicParsing="false" onAction="#sortActorRatingH_L" text="Highest - lowest" />
+                                          <MenuItem fx:id="menuItemFilterActorRatingL_H" mnemonicParsing="false" onAction="#sortActorRatingL_H" text="Lowest - Highest" />
+                                       </items>
+                                    </Menu>
+                                 </items>
+                                 <graphic>
+                                    <ImageView fitHeight="32.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../static/images/Slider.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </MenuButton>
+                           </children>
+                        </HBox>
+                        <ScrollPane fx:id="actorsContainer" hbarPolicy="NEVER" prefHeight="254.0" prefWidth="1203.0" style="-fx-background-color: #ffffff; -fx-background: #ffffff;" vbarPolicy="NEVER">
+                           <VBox.margin>
+                              <Insets bottom="20.0" left="46.0" right="46.0" />
+                           </VBox.margin>
+                           <content>
+                              <HBox fx:id="actorItemsContainer" prefHeight="251.0" prefWidth="180.0" spacing="16.0" />
+                           </content>
+                        </ScrollPane>
+                     </children>
+                     <stylesheets>
+                        <URL value="@style.css" />
+                        <URL value="@style.css" />
+                     </stylesheets>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <VBox prefHeight="245.0" prefWidth="157.0" style="-fx-background-color: #FFFFFF;">
+         <children>
+            <HBox prefHeight="44.0" prefWidth="157.0" />
+         </children>
+      </VBox>
+      <HBox prefHeight="44.0" prefWidth="157.0" />
+   </children>
+</VBox>

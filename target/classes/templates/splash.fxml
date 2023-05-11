@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox prefHeight="800.0" prefWidth="1280.0" stylesheets="@/templates/style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.itsa.moviereviewsite.fxml.controllers.SplashController">
+  <children>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+      <children>
+            <VBox layoutX="-1.0" layoutY="-7.0" prefHeight="810.0" prefWidth="633.0" style="-fx-background-color: #29353C;">
+               <children>
+                  <Label id="header" alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" prefHeight="472.0" prefWidth="633.0" stylesheets="@style.css" text="ITSA" textFill="#e6e6e6">
+                     <font>
+                        <Font size="164.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="67.0" prefWidth="633.0" text="Instantly Track, Share and Appreciate" textFill="#dfebf6">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox layoutX="632.0" layoutY="-1.0" prefHeight="803.0" prefWidth="650.0" style="-fx-background-color: #E6E6E6;">
+               <children>
+                  <FlowPane prefHeight="300.0" prefWidth="650.0" />
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="650.0">
+                     <children>
+                        <Button fx:id="loginBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#goToLogin" prefHeight="87.0" prefWidth="377.0" style="-fx-background-color: #44576D; -fx-text-fill: white; -fx-background-radius: 20px; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 2, 1);" styleClass="label" text="Log In" textAlignment="CENTER">
+                           <opaqueInsets>
+                              <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+                           </opaqueInsets>
+                           <effect>
+                              <ColorAdjust />
+                           </effect>
+                           <font>
+                              <Font size="32.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="650.0">
+                     <children>
+                        <Button fx:id="signupBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#goToSignup" prefHeight="87.0" prefWidth="377.0" style="-fx-background-color: #29353C; -fx-text-fill: white; -fx-background-radius: 20px; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 2, 1);" styleClass="label" text="Sign Up" textAlignment="CENTER">
+                           <opaqueInsets>
+                              <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+                           </opaqueInsets>
+                           <effect>
+                              <ColorAdjust />
+                           </effect>
+                           <font>
+                              <Font size="32.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="46.0" prefWidth="650.0">
+                     <children>
+                        <Button fx:id="btnContinueAsGuest" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#goToHomeScreen" prefHeight="39.0" prefWidth="372.0" style="-fx-background-color: #E6E6E6;" text="Continue as Guest" textAlignment="RIGHT" textFill="#4c7cb5" underline="true">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+               <opaqueInsets>
+                  <Insets bottom="100.0" left="100.0" right="100.0" top="100.0" />
+               </opaqueInsets>
+            </VBox>
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>

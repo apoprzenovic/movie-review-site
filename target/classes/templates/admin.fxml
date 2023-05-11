@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox prefHeight="800.0" prefWidth="1280.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.itsa.moviereviewsite.fxml.controllers.AdminController">
+   <children>
+      <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+         <children>
+            <HBox layoutX="-2.0" prefHeight="83.0" prefWidth="1298.0" style="-fx-background-color: #29353C;">
+               <children>
+                  <Button id="itsaBtn" mnemonicParsing="false" onAction="#goToAllMovies" style="-fx-background-color: none;" text="Button">
+                     <graphic>
+                        <Label id="header" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" prefHeight="92.0" prefWidth="1199.0" text="ITSA" textFill="#e6e6e6">
+                           <font>
+                              <Font size="57.0" />
+                           </font>
+                           <stylesheets>
+                              <URL value="@/templates/style.css" />
+                              <URL value="@style.css" />
+                              <URL value="@style.css" />
+                           </stylesheets>
+                        </Label>
+                     </graphic>
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin>
+                  </Button>
+                  <MenuButton fx:id="mButton" alignment="CENTER" ellipsisString="" mnemonicParsing="false" prefHeight="85.0" prefWidth="2.0" style="-fx-background-color: none;" text="MenuButton">
+                     <items>
+                        <MenuItem fx:id="miAllMovies" mnemonicParsing="false" onAction="#goToAllMovies" text="All Movies" />
+                        <MenuItem fx:id="miWishlist" mnemonicParsing="false" onAction="#goToWishlist" text="My Wishlist" />
+                        <MenuItem fx:id="miProfile" mnemonicParsing="false" onAction="#goToProfile" text="My Profile" />
+                     </items>
+                     <graphic>
+                        <ImageView fitHeight="44.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@/static/images/Menu.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </MenuButton>
+                  <Button mnemonicParsing="false" prefHeight="94.0" prefWidth="122.0" style="-fx-background-color: none;" />
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+      <HBox prefHeight="712.0" prefWidth="1296.0">
+         <children>
+            <VBox fx:id="vBoxAddDirectorContainer" alignment="CENTER_LEFT" fillWidth="false" prefHeight="712.0" prefWidth="1307.0">
+               <children>
+                  <HBox prefHeight="712.0" prefWidth="1294.0">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <children>
+                        <VBox alignment="CENTER_LEFT" fillWidth="false" prefHeight="721.0" prefWidth="431.0" spacing="10.0">
+                           <children>
+                              <Label prefHeight="44.0" prefWidth="615.0" style="-fx-background-color: #44576D; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 2, 1);" text="Add new Movie" textFill="WHITE">
+                                 <font>
+                                    <Font size="30.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </Label>
+                              <Label fx:id="lblWarningMovie" prefHeight="17.0" prefWidth="647.0" text="Input Fields Empty or Incorrect Input!" textFill="#720000" visible="false" />
+                              <HBox alignment="CENTER_LEFT" fillHeight="false" prefHeight="507.0" prefWidth="330.0" spacing="5.0">
+                                 <children>
+                                    <VBox fx:id="vBoxMovieInputs" prefHeight="458.0" prefWidth="313.0" spacing="5.0">
+                                       <children>
+                                          <TextField fx:id="tfInsertMovieTitle" prefHeight="50.0" prefWidth="300.0" promptText="Insert movie title" style="-fx-background-color: white;">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </TextField>
+                                          <TextField fx:id="tfInsertMovieReleaseDate" prefHeight="50.0" prefWidth="300.0" promptText="Insert release date (YYYY-MM-DD)" style="-fx-background-color: white;">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </TextField>
+                                          <TextField fx:id="tfInsertMovieDirectorId" prefHeight="50.0" prefWidth="300.0" promptText="Insert director id" style="-fx-background-color: white;">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </TextField>
+                                          <TextField fx:id="tfInsertMovieGenreId" prefHeight="50.0" prefWidth="300.0" promptText="Insert genre id" style="-fx-background-color: white;">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </TextField>
+                                          <TextField fx:id="tfInsertMovieTrailer" prefHeight="50.0" prefWidth="300.0" promptText="Insert link to trailer" style="-fx-background-color: white;">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </TextField>
+                                          <TextField fx:id="tfInsertMovieImageUrl" prefHeight="50.0" prefWidth="300.0" promptText="Insert link to image" style="-fx-background-color: white;">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </TextField>
+                                          <TextArea fx:id="taMovieSummary" prefHeight="137.0" prefWidth="270.0" promptText="Insert movie summary..." style="-fx-background-color: white;" wrapText="true">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </TextArea>
+                                          <TextArea fx:id="taMoviePlot" prefHeight="137.0" prefWidth="292.0" promptText="Insert movie plot.." style="-fx-background-color: white;" wrapText="true">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </TextArea>
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </VBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" />
+                                 </padding>
+                              </HBox>
+                              <Button mnemonicParsing="false" onAction="#addNewMovie" prefHeight="31.0" prefWidth="624.0" style="-fx-background-color: #29353C; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 2, 1);" text="Save to database" textFill="WHITE">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                           <padding>
+                              <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+                           </padding>
+                        </VBox>
+                        <VBox fx:id="vBoxAddActorContainer" prefHeight="721.0" prefWidth="431.0" spacing="10.0">
+                           <children>
+                              <Label prefHeight="44.0" prefWidth="505.0" style="-fx-background-color: #44576D; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 2, 1);" text="Add new Actor" textFill="WHITE">
+                                 <font>
+                                    <Font size="30.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </Label>
+                              <Label fx:id="lblWarningActor" prefHeight="17.0" prefWidth="647.0" text="Input Fields Empty or Incorrect Input!" textFill="#720000" visible="false" />
+                              <HBox alignment="CENTER_LEFT" fillHeight="false" prefHeight="533.0" prefWidth="330.0" spacing="5.0">
+                                 <children>
+                                    <VBox fx:id="vBoxActorInputs" prefHeight="458.0" prefWidth="330.0" spacing="5.0">
+                                       <children>
+                                          <TextField fx:id="tfInsertActorName" prefHeight="50.0" prefWidth="300.0" promptText="Insert actor name" style="-fx-background-color: white;">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </TextField>
+                                          <TextField fx:id="tfInsertActorBirthDate" prefHeight="50.0" prefWidth="300.0" promptText="Insert actor birth date (YYYY-MM-DD)" style="-fx-background-color: white;">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </TextField>
+                                          <TextField fx:id="tfInsertActorTagline" prefHeight="50.0" prefWidth="300.0" promptText="Insert actor tagline" style="-fx-background-color: white;">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </TextField>
+                                          <TextField fx:id="tfInsertActorImageLink" prefHeight="50.0" prefWidth="300.0" promptText="Insert actor link to image" style="-fx-background-color: white;">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </TextField>
+                                          <TextArea fx:id="taInsertActorBiography" prefHeight="459.0" prefWidth="270.0" promptText="Insert actor biography.." style="-fx-background-color: white;" wrapText="true">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </TextArea>
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </VBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" />
+                                 </padding>
+                              </HBox>
+                              <Button mnemonicParsing="false" onAction="#addNewActor" prefHeight="31.0" prefWidth="624.0" style="-fx-background-color: #29353C; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 2, 1);" text="Save to database" textFill="WHITE">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                           <padding>
+                              <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+                           </padding>
+                        </VBox>
+                        <VBox layoutX="400.0" layoutY="10.0" prefHeight="721.0" prefWidth="431.0" spacing="10.0">
+                           <children>
+                              <Label prefHeight="44.0" prefWidth="505.0" style="-fx-background-color: #44576D; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 2, 1);" text="Add new Director" textFill="WHITE">
+                                 <font>
+                                    <Font size="30.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </Label>
+                              <Label fx:id="lblWarningDirector" prefHeight="17.0" prefWidth="647.0" text="Input Fields Empty or Incorrect Input!" textFill="#720000" visible="false" />
+                              <HBox alignment="CENTER_LEFT" fillHeight="false" prefHeight="533.0" prefWidth="290.0" spacing="5.0">
+                                 <children>
+                                    <VBox fx:id="vBoxDirectorInputs" prefHeight="458.0" prefWidth="330.0" spacing="5.0">
+                                       <children>
+                                          <TextField fx:id="tfInsertDirectorName" prefHeight="50.0" prefWidth="300.0" promptText="Insert director name" style="-fx-background-color: white;">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </TextField>
+                                          <TextField fx:id="tfInsertDirectorBirthdate" prefHeight="50.0" prefWidth="300.0" promptText="Insert director birth date (YYYY-MM-DD)" style="-fx-background-color: white;">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </TextField>
+                                          <TextField fx:id="tfInsertDirectorImage" layoutX="10.0" layoutY="46.0" prefHeight="50.0" prefWidth="300.0" promptText="Insert director image link" style="-fx-background-color: white;">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </TextField>
+                                          <TextArea fx:id="taInsertDirectorBiography" prefHeight="459.0" prefWidth="270.0" promptText="Insert actor biography.." style="-fx-background-color: white;" wrapText="true">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </TextArea>
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </VBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" />
+                                 </padding>
+                              </HBox>
+                              <Button mnemonicParsing="false" onAction="#addNewDirector" prefHeight="31.0" prefWidth="624.0" style="-fx-background-color: #29353C; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 2, 1);" text="Save to database" textFill="WHITE">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                           <padding>
+                              <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</VBox>

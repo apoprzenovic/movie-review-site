@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox prefHeight="800.0" prefWidth="1280.0" stylesheets="@/templates/style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.itsa.moviereviewsite.fxml.controllers.ProfileController">
+   <children>
+      <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+         <children>
+            <HBox layoutX="-2.0" prefHeight="83.0" prefWidth="1298.0" style="-fx-background-color: #29353C;">
+               <children>
+                  <Button id="itsaBtn" mnemonicParsing="false" onAction="#goToAllMovies" style="-fx-background-color: none;" text="Button">
+                     <graphic>
+                        <Label id="header" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" prefHeight="92.0" prefWidth="1199.0" text="ITSA" textFill="#e6e6e6">
+                           <font>
+                              <Font size="57.0" />
+                           </font>
+                           <stylesheets>
+                              <URL value="@style.css" />
+                              <URL value="@style.css" />
+                           </stylesheets>
+                        </Label>
+                     </graphic>
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin>
+                  </Button>
+                  <MenuButton fx:id="mButton" alignment="CENTER" ellipsisString="" mnemonicParsing="false" prefHeight="85.0" prefWidth="2.0" style="-fx-background-color: none;" text="MenuButton">
+                     <items>
+                        <MenuItem fx:id="miAllMovies" mnemonicParsing="false" onAction="#goToAllMovies" text="All Movies" />
+                        <MenuItem fx:id="miWishlist" mnemonicParsing="false" onAction="#goToWishlist" text="My Wishlist" />
+                     </items>
+                     <graphic>
+                        <ImageView fitHeight="44.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@/static/images/Menu.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </MenuButton>
+                  <Button mnemonicParsing="false" prefHeight="94.0" prefWidth="122.0" style="-fx-background-color: none;" />
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+      <HBox prefHeight="712.0" prefWidth="1296.0">
+         <children>
+            <VBox prefHeight="712.0" prefWidth="357.0">
+               <children>
+                  <Label fx:id="lblUsername" prefHeight="44.0" prefWidth="420.0" style="-fx-background-color: #44576D; -fx-text-fill: #ffffff;" text="User Name">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="43.0" right="43.0" top="20.0" />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </Label>
+                  <ImageView fx:id="imageViewProfilePicture" fitHeight="310.0" fitWidth="309.0" pickOnBounds="true" preserveRatio="true">
+                     <VBox.margin>
+                        <Insets left="50.0" right="50.0" top="20.0" />
+                     </VBox.margin>
+                     <image>
+                        <Image url="@/static/images/Stock-Profile-Photo.png" />
+                     </image>
+                  </ImageView>
+                  <HBox prefHeight="42.0" prefWidth="429.0">
+                     <children>
+                        <Label prefHeight="39.0" prefWidth="297.0" text="Email:">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblEmail" prefHeight="39.0" prefWidth="329.0" text="idamuzic@rit.edu">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="43.0" right="43.0" top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <Button fx:id="btnChangePassword" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#showEditOptions" prefHeight="44.0" prefWidth="420.0" style="-fx-background-color: #29353C;" text="Edit info" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="23.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="43.0" right="43.0" top="10.0" />
+                     </VBox.margin>
+                  </Button>
+                  <VBox fx:id="vBoxEditInfo" visible="false">
+                     <children>
+                        <TextField fx:id="tfNewEmail" prefHeight="30.0" promptText="Add email" style="-fx-background-color: white;">
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="tfNewProfilePhoto" prefHeight="30.0" promptText="Add profile picture url" style="-fx-background-color: white;">
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </TextField>
+                        <Button fx:id="btnSaveNewInfo" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#saveNewInfo" prefHeight="44.0" prefWidth="420.0" style="-fx-background-color: #44576D;" text="Save" textFill="WHITE">
+                           <font>
+                              <Font size="23.0" />
+                           </font>
+                        </Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="43.0" right="43.0" top="10.0" />
+                     </VBox.margin>
+                  </VBox>
+               </children>
+            </VBox>
+            <VBox prefHeight="712.0" prefWidth="922.0">
+               <children>
+                  <Label prefHeight="44.0" prefWidth="1943.0" style="-fx-background-color: #44576D; -fx-text-fill: #ffffff;" text="Ratings">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets left="43.0" right="43.0" top="20.0" />
+                     </VBox.margin>
+                  </Label>
+                  <ScrollPane fx:id="scrollPaneProfile" hbarPolicy="NEVER" prefHeight="518.0" prefWidth="801.0" style="-fx-background-color: transparent;">
+                     <VBox.margin>
+                        <Insets left="43.0" right="43.0" />
+                     </VBox.margin>
+                     <content>
+                        <VBox fx:id="vBoxRatings" prefHeight="190.0" prefWidth="800.0">
+                           <children>
+                              <VBox fillWidth="false" prefHeight="182.0" prefWidth="800.0">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="791.0">
+                                       <children>
+                                          <Label prefHeight="29.0" prefWidth="595.0" text="Shazam! Fury of the gods" textFill="#44576d">
+                                             <font>
+                                                <Font size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <ImageView fitHeight="35.8" fitWidth="194.57" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@/static/images/3-Stars.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                    <TextArea prefHeight="114.0" prefWidth="796.0" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                     </content>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </ScrollPane>
+                  <Button fx:id="btnLogOut" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#logOutOfProfile" prefHeight="43.0" prefWidth="855.0" style="-fx-background-color: #29353C;" text="Log Out" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="23.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="43.0" right="43.0" top="20.0" />
+                     </VBox.margin>
+                  </Button>
+               </children></VBox>
+         </children>
+      </HBox>
+   </children>
+</VBox>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox prefHeight="800.0" prefWidth="1280.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.itsa.moviereviewsite.fxml.controllers.WishlistController">
+   <children>
+      <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+         <children>
+            <HBox layoutX="-2.0" prefHeight="83.0" prefWidth="1298.0" style="-fx-background-color: #29353C;">
+               <children>
+                  <Button id="itsaBtn" mnemonicParsing="false" onAction="#goToAllMovies" style="-fx-background-color: none;" text="Button">
+                     <graphic>
+                        <Label id="header" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" prefHeight="92.0" prefWidth="1199.0" text="ITSA" textFill="#e6e6e6">
+                           <font>
+                              <Font size="57.0" />
+                           </font>
+                           <stylesheets>
+                              <URL value="@style.css" />
+                              <URL value="@style.css" />
+                           </stylesheets>
+                        </Label>
+                     </graphic>
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin>
+                  </Button>
+                  <MenuButton fx:id="mButton" alignment="CENTER" ellipsisString="" mnemonicParsing="false" prefHeight="85.0" prefWidth="2.0" style="-fx-background-color: none;" text="MenuButton">
+                     <items>
+                        <MenuItem fx:id="miAllMovies" mnemonicParsing="false" onAction="#goToAllMovies" text="All Movies" />
+                        <MenuItem fx:id="miProfile" mnemonicParsing="false" onAction="#goToProfile" text="My Profile" />
+                     </items>
+                     <graphic>
+                        <ImageView fitHeight="44.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@/static/images/Menu.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </MenuButton>
+                  <Button mnemonicParsing="false" prefHeight="94.0" prefWidth="122.0" style="-fx-background-color: none;" />
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+      <HBox prefHeight="712.0" prefWidth="1296.0">
+         <children>
+            <VBox prefHeight="712.0" prefWidth="1300.0">
+               <children>
+                  <Label prefHeight="44.0" prefWidth="1225.0" style="-fx-background-color: #44576D; -fx-text-fill: #ffffff;" text="My Wishlist">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets left="43.0" right="43.0" top="43.0" />
+                     </VBox.margin>
+                  </Label>
+                  <ScrollPane hbarPolicy="NEVER" prefHeight="609.0" prefWidth="1162.0" style="-fx-background-color: transparent;">
+                     <content>
+                        <VBox fx:id="scrollPaneWishlistItems" prefHeight="239.0" prefWidth="1207.0">
+                           <children>
+                              <HBox alignment="CENTER" prefHeight="239.0" prefWidth="1166.0">
+                                 <children>
+                                    <ImageView fitHeight="200.0" fitWidth="158.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@/static/images/Shazam-Poster.png" />
+                                       </image>
+                                    </ImageView>
+                                    <VBox prefHeight="190.0" prefWidth="887.0">
+                                       <children>
+                                          <FlowPane prefHeight="67.0" prefWidth="887.0">
+                                             <children>
+                                                <Label prefHeight="29.0" prefWidth="645.0" text="Shazam! Fury of the gods" textFill="#44576d">
+                                                   <font>
+                                                      <Font size="24.0" />
+                                                   </font>
+                                                </Label>
+                                                <ImageView fitHeight="35.8" fitWidth="368.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@/static/images/3-Stars.png" />
+                                                   </image>
+                                                   <FlowPane.margin>
+                                                      <Insets />
+                                                   </FlowPane.margin>
+                                                </ImageView>
+                                             </children>
+                                          </FlowPane>
+                                          <TextArea prefHeight="161.0" prefWidth="807.0" promptText="No summary for this movie in our database..." style="-fx-background-color: white; -fx-inner-border: white; -fx-border-radius: none;" stylesheets="@style.css" wrapText="true">
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin>
+                                          </TextArea>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                       </padding>
+                                    </VBox>
+                                    <Button fx:id="btnRemove" mnemonicParsing="false" prefHeight="39.0" prefWidth="99.0" style="-fx-background-color: #29353C;" text="Remove" textFill="WHITE">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets bottom="100.0" top="100.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                 </children>
+                                 <effect>
+                                    <BoxBlur iterations="0" width="0.0" />
+                                 </effect>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </content>
+                     <VBox.margin>
+                        <Insets left="43.0" right="43.0" />
+                     </VBox.margin>
+                  </ScrollPane>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</VBox>

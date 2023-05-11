@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox prefHeight="800.0" prefWidth="1280.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.itsa.moviereviewsite.fxml.controllers.MovieController">
+   <children>
+      <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+         <children>
+            <HBox layoutX="-2.0" prefHeight="83.0" prefWidth="1298.0" style="-fx-background-color: #29353C;">
+               <children>
+                  <Button id="itsaBtn" mnemonicParsing="false" onAction="#goToAllMovies" style="-fx-background-color: none;" text="Button">
+                     <graphic>
+                        <Label id="header" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" prefHeight="92.0" prefWidth="1199.0" text="ITSA" textFill="#e6e6e6">
+                           <font>
+                              <Font size="57.0" />
+                           </font>
+                           <stylesheets>
+                              <URL value="@/templates/style.css" />
+                              <URL value="@style.css" />
+                              <URL value="@style.css" />
+                           </stylesheets>
+                        </Label>
+                     </graphic>
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin>
+                  </Button>
+                  <MenuButton fx:id="mButton" alignment="CENTER" ellipsisString="" mnemonicParsing="false" prefHeight="85.0" prefWidth="2.0" style="-fx-background-color: none;" text="MenuButton">
+                     <items>
+                        <MenuItem fx:id="miAllMovies" mnemonicParsing="false" onAction="#goToAllMovies" text="All Movies" />
+                        <MenuItem fx:id="miWishlist" mnemonicParsing="false" onAction="#goToWishlist" text="My Wishlist" />
+                        <MenuItem fx:id="miProfile" mnemonicParsing="false" onAction="#goToProfile" text="My Profile" />
+                     </items>
+                     <graphic>
+                        <ImageView fitHeight="44.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@/static/images/Menu.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </MenuButton>
+                  <Button mnemonicParsing="false" prefHeight="94.0" prefWidth="122.0" style="-fx-background-color: none;" />
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+      <HBox prefHeight="712.0" prefWidth="1296.0">
+         <children>
+            <VBox fx:id="btnDirector" alignment="TOP_CENTER" prefHeight="712.0" prefWidth="357.0">
+               <children>
+                  <Label fx:id="lblTitle" alignment="CENTER" prefHeight="44.0" prefWidth="420.0" style="-fx-background-color: #44576D; -fx-text-fill: #ffffff; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 2, 1);" text="Shazam!">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="20.0" />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </Label>
+                  <VBox alignment="CENTER">
+                     <VBox.margin>
+                        <Insets left="50.0" right="50.0" top="20.0" />
+                     </VBox.margin>
+                     <children>
+                        <ImageView fx:id="movieImageView" fitHeight="232.0" fitWidth="199.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@/static/images/Shazam-Poster.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </VBox>
+                  <ImageView fx:id="ratingImageView" fitHeight="51.0" fitWidth="157.0" pickOnBounds="true" preserveRatio="true">
+                     <VBox.margin>
+                        <Insets left="100.0" right="100.0" top="10.0" />
+                     </VBox.margin>
+                     <image>
+                        <Image url="@../static/images/stars2.png" />
+                     </image>
+                  </ImageView>
+                  <HBox prefHeight="39.0" prefWidth="429.0">
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                     <children>
+                        <Label fx:id="lblGenre1" layoutX="10.0" layoutY="10.0" prefHeight="39.0" prefWidth="67.0" text="Genre:">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblGenre" alignment="CENTER_RIGHT" prefHeight="39.0" prefWidth="273.0" text="Action/Adventure">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="39.0" prefWidth="429.0">
+                     <children>
+                        <Label prefHeight="39.0" prefWidth="134.0" text="Director:">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="btnLeadToDirectorPage" alignment="TOP_RIGHT" mnemonicParsing="false" prefHeight="39.0" prefWidth="226.0" style="-fx-background-color: none;" text="David F. Sandberg" textAlignment="RIGHT" textFill="#264194" underline="true">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <padding>
+                              <Insets right="1.0" top="5.0" />
+                           </padding></Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox prefHeight="39.0" prefWidth="429.0">
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </VBox.margin>
+                     <children>
+                        <Label prefHeight="39.0" prefWidth="297.0" text="Actors: ">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <TextArea fx:id="taActors" editable="false" prefHeight="91.0" prefWidth="321.0" style="-fx-background-color: none;" text="Zachary Levi as Shazam (adult), Asher Angel as Billy Batson (young), Mark Strong as Dr. Thaddeus Sivana, Jack Dylan Grazer as Freddy Freeman, Djimon Hounsou as The Wizard Shazam, Grace Fulton as Mary Bromfield, Ian Chen as Eugene Choi, Jovan Armand as Pedro Peña, Faithe Herman as Darla Dudley Cooper Andrews as Victor Vasquez." wrapText="true">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="10.0" right="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </TextArea>
+                  <HBox prefHeight="26.0" prefWidth="357.0">
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </VBox.margin>
+                     <children>
+                        <Button fx:id="btnAddToWishlist" mnemonicParsing="false" onAction="#addToWishlist" prefHeight="39.0" prefWidth="336.0" style="-fx-background-color: #29353C; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 2, 1);" text="Add Movie to Wishlist" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox fx:id="hBoxRemoveBtnContainer" alignment="CENTER" prefHeight="38.0" visible="false">
+                     <children>
+                        <Button fx:id="btnDeleteMovie" mnemonicParsing="false" prefHeight="30.0" prefWidth="336.0" style="-fx-background-color: #9FBDD8;" text="Delete movie" />
+                     </children>
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox prefHeight="712.0" prefWidth="922.0">
+               <children>
+                  <Label prefHeight="44.0" prefWidth="1943.0" style="-fx-background-color: #44576D; -fx-text-fill: #ffffff; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 2, 1);" text="Summary">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" top="20.0" />
+                     </VBox.margin>
+                  </Label>
+                  <VBox prefHeight="71.0" prefWidth="836.0">
+                     <children>
+                        <TextArea fx:id="taSummary" editable="false" prefHeight="63.0" prefWidth="836.0" promptText="No summary for this movie in our database.." style="-fx-background-color: none;" wrapText="true">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </TextArea>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </VBox.margin>
+                  </VBox>
+                  <VBox prefHeight="153.0" prefWidth="922.0">
+                     <children>
+                        <Label prefHeight="44.0" prefWidth="1943.0" style="-fx-background-color: #44576D; -fx-text-fill: #ffffff; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 2, 1);" text="Plot">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets left="10.0" right="10.0" top="20.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextArea fx:id="taPlot" editable="false" prefHeight="83.0" prefWidth="836.0" promptText="No plot for this movie in our database..." style="-fx-background-color: none;" wrapText="true">
+                           <VBox.margin>
+                              <Insets left="10.0" right="10.0" top="10.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </TextArea>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="20.0" />
+                     </VBox.margin>
+                  </VBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="46.0" prefWidth="836.0" style="-fx-background-color: #44576D; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 2, 1);">
+                     <children>
+                        <Label contentDisplay="CENTER" prefHeight="44.0" prefWidth="212.0" style="-fx-background-color: #44576D;" text="View trailer" textFill="WHITE">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Hyperlink fx:id="hyperlinkTrailer" alignment="TOP_RIGHT" prefHeight="32.0" prefWidth="595.0" text="Hyperlink" textAlignment="CENTER" textFill="WHITE" underline="true">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Hyperlink>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="46.0" prefWidth="836.0" style="-fx-background-color: #44576D; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 2, 1);">
+                     <children>
+                        <Label contentDisplay="CENTER" prefHeight="44.0" prefWidth="672.0" style="-fx-background-color: #44576D;" text="Leave a rating" textFill="WHITE">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <ChoiceBox fx:id="choiceBoxRating" prefHeight="26.0" prefWidth="206.0" style="-fx-background-color: white;" />
+                     </children>
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" top="20.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <Label prefHeight="44.0" prefWidth="1943.0" style="-fx-background-color: #44576D; -fx-text-fill: #ffffff; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 2, 1);" text="Leave a comment:">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" top="20.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextArea fx:id="taComment" prefHeight="95.0" prefWidth="836.0" style="-fx-background-color: none;">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </TextArea>
+                  <Button fx:id="btnSubmit" mnemonicParsing="false" onAction="#postReview" prefHeight="26.0" prefWidth="925.0" style="-fx-background-color: #29353C; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 2, 1);" text="Submit review" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+                  <HBox fx:id="HBoxBtnUpdateMovieContainer" alignment="CENTER" prefHeight="38.0" prefWidth="922.0" visible="false">
+                     <children>
+                        <Button fx:id="btnUpdateMovieInfo" mnemonicParsing="false" prefHeight="30.0" prefWidth="925.0" style="-fx-background-color: #9FBDD8;" text="Update movie info" />
+                     </children>
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</VBox>

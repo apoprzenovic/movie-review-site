@@ -1,0 +1,84 @@
+@font-face {
+    font-family: 'Londrina Outline';
+    src: url('/static/fonts/Londrina_Outline/LondrinaOutline-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Karla';
+    src: url('/static/fonts/Karla/Karla-VariableFont_wght.ttf');
+}
+
+.label {
+    -fx-font-family: 'Karla';
+}
+
+.button:hover,
+.menu-button:hover {
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: rgb(13, 13, 63);
+}
+
+#header {
+    -fx-font-family: 'Londrina Outline';
+}
+
+#signupBtn,
+#loginBtn,
+#btnLogin,
+#signupButton {
+    -fx-font-size: 32px;
+}
+
+#itsaBtn {
+    -fx-font-size: 50px;
+}
+
+#loginBtn2 {
+    -fx-effect: none;
+    -fx-font-size: 24px;
+}
+
+.vbox {
+    -fx-alignment: center;
+}
+
+.vbox>*>* {
+    -fx-align-self: center;
+}
+
+.menu-button .arrow-button .arrow {
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+    -fx-shape: "";
+}
+
+.text-area {
+    border-style: none;
+    border-color: Transparent;
+    overflow: auto;
+    outline: none;
+    -fx-control-inner-background: rgb(233, 233, 233);
+}
+
+.text-area {
+    -fx-background-insets: 0;
+    -fx-background-color: transparent, white, transparent, white;
+    -fx-background-radius: 0, 0, 0, 0;
+
+    -fx-box-border: none;
+    -fx-focus-color: -fx-control-inner-background;
+    -fx-faint-focus-color: -fx-control-inner-background;
+    -fx-text-box-border: -fx-control-inner-background;
+    -fx-border-width: -1;
+}
+
+.text-area .content {
+    -fx-background-color: transparent, white, transparent, white;
+}
+
+.text-area:focused .content {
+    -fx-background-color: transparent, white, transparent, white;
+}
