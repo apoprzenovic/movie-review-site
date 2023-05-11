@@ -1,8 +1,3 @@
-# Read Me First
-The following was discovered as part of building this project:
-
-* The original package name 'com.itsa.movie-review-site' is invalid and this project uses 'com.itsa.moviereviewsite' instead.
-
 # Getting Started
 
 ### Reference Documentation
