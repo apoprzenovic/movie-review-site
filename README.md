@@ -1,0 +1,7 @@
+# Movie Review Site - JavaFX Interface with Azure Backend
+This project is a desktop movie review site application, meticulously designed to provide an engaging and responsive user experience. The application is developed using JavaFX, a powerful platform for creating rich internet applications using a lightweight, hardware-accelerated Java UI.
+
+Key Features:
+- JavaFX User Interface: The desktop application features a user-friendly interface designed with JavaFX. It's designed with a focus on usability and aesthetic appeal, thus offering users an engaging and interactive experience as they navigate through movie reviews.
+- Microsoft Azure Backend: The application leverages the scalability and reliability of Microsoft Azure for backend services. The backend has been designed following the best practices for cloud-based database management, ensuring optimal performance and reliability even with substantial data loads and user requests.
+- Spring Boot, JPA, and Hibernate Integration: The application showcases extensive usage of contemporary Java frameworks and Object-Relational Mapping (ORM) tools. It leverages Spring Boot and associated technologies like Java Persistence API (JPA) and Hibernate for efficient connection and interaction with the Azure Database. This robust integration facilitates efficient data handling and transaction management, enhancing the overall performance of the application.
